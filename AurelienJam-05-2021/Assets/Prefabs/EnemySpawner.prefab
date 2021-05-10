@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 16.47
-  spawnFrequency: 500
+  spawnFrequency: 3200
   enemy: {fileID: 7321171721053348344, guid: 762223fc0f172a74a9a917fe2423f881, type: 3}
