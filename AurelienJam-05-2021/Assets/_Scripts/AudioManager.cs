@@ -2,20 +2,10 @@
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
-    public static AudioManager Instance { get; private set; }
 
     [SerializeField] private Sound[] sounds = new Sound[0];
 
     private void Awake() {
-        if(AudioManager.Instance == null) {
-            AudioManager.Instance = this;
-        } else {
-            Destroy(this.gameObject);
-            return;
-        }
-        this.transform.parent = null;
-        DontDestroyOnLoad(this.gameObject);
-
         foreach(Sound sound in this.sounds) {
             sound.Source = this.gameObject.AddComponent<AudioSource>();
             sound.Source.clip = sound.Clip;
