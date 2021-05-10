@@ -4,8 +4,10 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
 
     public AudioManager AudioManager { get => this.audioManager; }
+    public GameObject Player { get => this.player; }
 
     [SerializeField] private AudioManager audioManager = null;
+    [SerializeField] private GameObject player = null;
 
 
     private void Awake() {

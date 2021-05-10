@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1601409819996737037}
   - component: {fileID: 1601162371863500999}
   - component: {fileID: 1601525477863866793}
+  - component: {fileID: 5839062159292302638}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -134,6 +135,7 @@ MonoBehaviour:
   horizontalInputAxis: Horizontal
   verticalInputAxis: Vertical
   jumpKey: 32
+  shootKey: 323
   useRawInput: 1
 --- !u!114 &1601162371863500999
 MonoBehaviour:
@@ -170,6 +172,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3efdd4c11a4bdc54a9087ab115c1de9e, type: 3}
   jumpClip: {fileID: 8300000, guid: 99ab8a4503de1f448ad764a5c4cdf9cc, type: 3}
   landClip: {fileID: 8300000, guid: c212aa2d646dfe248b7c96b4f0e4cb27, type: 3}
+--- !u!114 &5839062159292302638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704644877802120189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e97e8571c06594586029af9631bf97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1704766844215811147
 GameObject:
   m_ObjectHideFlags: 0

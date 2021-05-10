@@ -10,6 +10,18 @@ public class Shooter : MonoBehaviour {
         this.characterInput = this.transform.parent.parent.GetComponent<CMF.CharacterInput>();
     }
 
+    private void OnDisable() {
+        if(this.shootLoop != null) {
+            StopCoroutine(this.shootLoop);
+        }
+    }
+
+    private void OnEnable() {
+        this.canShoot = true;
+        this.wasShootKeyDown = false;
+        HandleShootingInput();
+    }
+
     private void FixedUpdate() {
         HandleShootingInput();
     }
@@ -17,7 +29,7 @@ public class Shooter : MonoBehaviour {
     private void HandleShootingInput() {
         bool isShootKeyDown = this.characterInput.IsShootKeyPressed();
         if(isShootKeyDown) {
-            if(!this.wasShootKeyDown && this.canShoot) {
+            if(!this.wasShootKeyDown) {
                 this.shootLoop = StartCoroutine(ShootLoop());
             }
         } else if(this.shootLoop != null) {
@@ -28,10 +40,14 @@ public class Shooter : MonoBehaviour {
 
 
     private IEnumerator ShootLoop() {
-        this.canShoot = false;
-        StartCoroutine(ShootCooldown());
+        if(this.canShoot) {
+            this.canShoot = false;
+            StartCoroutine(ShootCooldown());
+        }
         while(true) {
-            Shoot();
+            if(this.canShoot) {
+                Shoot();
+            }
             yield return new WaitForSecondsRealtime(this.fireRate / 1000f);
         }
     }

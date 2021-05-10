@@ -11,7 +11,7 @@ using UnityEditor;
 [SaveDuringPlay]
 [AddComponentMenu("")] // Hide in menu
 public class CinemachineClampPosition : CinemachineExtension {
-    [SerializeField] private Vector3 minPos, maxPos;
+    [SerializeField] private Vector3 minPos = Vector3.zero, maxPos = Vector3.zero;
 
     protected override void PostPipelineStageCallback(
         CinemachineVirtualCameraBase vcam,
