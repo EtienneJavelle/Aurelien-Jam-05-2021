@@ -16,8 +16,10 @@ public class TurnTowardAimPosition : MonoBehaviour {
         worldPosition.y = this.transform.position.y;
         Vector3 direction = worldPosition - this.transform.position;
         direction.Normalize();
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction, this.transform.up), this.turnSpeed);
-        //this.transform.rotation = Quaternion.LookRotation(direction, this.transform.up);
+        this.transform.rotation = Quaternion.Slerp(
+            this.transform.rotation,
+            Quaternion.LookRotation(direction, this.transform.up),
+            this.turnSpeed);
         Debug.DrawRay(this.transform.position, direction, Color.red);
     }
 }
