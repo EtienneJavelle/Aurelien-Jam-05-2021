@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 7321171721053348342}
   - component: {fileID: 7321171721053348345}
   - component: {fileID: 7321171721053348340}
-  - component: {fileID: 7321171721053348343}
-  - component: {fileID: 7321171721053348341}
+  - component: {fileID: -7373225261006333065}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -47,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64de87236c58dc4091b60776547bf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backSpeed: 3
-  forwardSpeed: 8
+  backSpeed: 30
+  forwardSpeed: 263.16
   shootRangeMin: 4
   shootRangeMax: 13
   turnSpeed: 0.5
@@ -64,24 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b57c773204337e47aaeed8de59b8503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &7321171721053348343
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7321171721053348344}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &7321171721053348341
-CapsuleCollider:
+--- !u!143 &-7373225261006333065
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,9 +73,13 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  serializedVersion: 2
   m_Height: 2
-  m_Direction: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &7321171721507553897
 GameObject:
