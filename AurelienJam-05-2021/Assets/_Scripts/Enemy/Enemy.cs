@@ -24,13 +24,13 @@ public class Enemy : MonoBehaviour {
         direction.Normalize();
 
         if(Vector3.Distance(targetPos, transform.position) < shootRangeMin) {
-            controller.SimpleMove(-direction.normalized * backSpeed * Time.deltaTime);
+            controller.SimpleMove(-direction.normalized * backSpeed);
             //rigidbody.MovePosition(transform.position - (direction.normalized * backSpeed * Time.deltaTime));
             //transform.position -= direction.normalized * backSpeed * Time.deltaTime;
         } else if(Vector3.Distance(targetPos, transform.position) < shootRangeMax) {
             shooter.enabled = true;
         } else {
-            controller.SimpleMove(direction.normalized * forwardSpeed * Time.deltaTime);
+            controller.SimpleMove(direction.normalized * forwardSpeed);
             //rigidbody.MovePosition(transform.position + (direction.normalized * forwardSpeed * Time.deltaTime));
             //transform.position += direction.normalized * forwardSpeed * Time.deltaTime;
             shooter.enabled = false;
