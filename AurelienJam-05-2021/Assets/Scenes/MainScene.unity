@@ -19181,11 +19181,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BallonRouge
       objectReference: {fileID: 0}
-    - target: {fileID: 4017073586660722553, guid: 6a834cd54b8855443af4c24d40a75944,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 4392227381569658307, guid: 6a834cd54b8855443af4c24d40a75944,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -47622,11 +47617,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 69546268995537784, guid: 1929cc084a29ec24d87617074a21baa9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1252260985946285030, guid: 1929cc084a29ec24d87617074a21baa9,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -47652,30 +47642,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2709413054305308268, guid: 1929cc084a29ec24d87617074a21baa9,
+    - target: {fileID: 1252260985946285030, guid: 1929cc084a29ec24d87617074a21baa9,
         type: 3}
-      propertyPath: sounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2709413054305308268, guid: 1929cc084a29ec24d87617074a21baa9,
-        type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: Pew
-      objectReference: {fileID: 0}
-    - target: {fileID: 2709413054305308268, guid: 1929cc084a29ec24d87617074a21baa9,
-        type: 3}
-      propertyPath: sounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 3c2ba60e6ab8a7f4b9436ecaaaaeaf00, type: 3}
-    - target: {fileID: 2709413054305308268, guid: 1929cc084a29ec24d87617074a21baa9,
-        type: 3}
-      propertyPath: sounds.Array.data[0].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2709413054305308268, guid: 1929cc084a29ec24d87617074a21baa9,
-        type: 3}
-      propertyPath: sounds.Array.data[0].pitch
-      value: 1
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2985775141314902493, guid: 1929cc084a29ec24d87617074a21baa9,
         type: 3}
@@ -47792,6 +47762,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8302502395905153445, guid: 1929cc084a29ec24d87617074a21baa9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8603006007426801785, guid: 1929cc084a29ec24d87617074a21baa9,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -47815,6 +47790,11 @@ PrefabInstance:
     - target: {fileID: 8603006007426801785, guid: 1929cc084a29ec24d87617074a21baa9,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603006007426801785, guid: 1929cc084a29ec24d87617074a21baa9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
