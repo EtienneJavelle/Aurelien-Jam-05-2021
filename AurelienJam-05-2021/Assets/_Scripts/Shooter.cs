@@ -75,7 +75,9 @@ public class Shooter : MonoBehaviour {
 
     public void Shoot() {
         if(firerate - specialFirerate <= 0.001f) {
-            powerHandeler.Shoot(audio);
+            if(!powerHandeler.Shoot(audio)) {
+                return;
+            }
         } else {
             audio.Play("Pew");
         }

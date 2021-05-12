@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PowerHandeler : MonoBehaviour {
     [SerializeField] private KeyCode power1 = KeyCode.Alpha1, power2 = KeyCode.Alpha2, power3 = KeyCode.Alpha3;
     [SerializeField] private int power = 1;
+    [SerializeField] private float coolDown = 200f;
+    [SerializeField] private float amountGained = 2f;
     [Header("Power 1")]
     [SerializeField] private float p1Cost = 10;
     [SerializeField] private float p1Firerate = 60f;
@@ -24,6 +27,7 @@ public class PowerHandeler : MonoBehaviour {
 
     private void Start() {
         SetPower1();
+        StartCoroutine(RegainMana());
     }
 
     private void Update() {
@@ -45,6 +49,22 @@ public class PowerHandeler : MonoBehaviour {
                 return;
             }
             SetPower3();
+        }
+
+
+    }
+
+    private IEnumerator RegainMana() {
+        print("Start");
+        while(true) {
+            yield return new WaitForSecondsRealtime(coolDown / 1000f);
+            print("update");
+            currentP1 = Mathf.Min(100, currentP1 + amountGained);
+            GameManager.Instance.UI.P1Slider.value = currentP1;
+            currentP2 = Mathf.Min(100, currentP2 + amountGained);
+            GameManager.Instance.UI.P2Slider.value = currentP2;
+            currentP3 = Mathf.Min(100, currentP3 + amountGained);
+            GameManager.Instance.UI.P3Slider.value = currentP3;
         }
     }
 
@@ -69,16 +89,31 @@ public class PowerHandeler : MonoBehaviour {
     private float currentP1 = 100f, currentP2 = 100f, currentP3 = 100f;
     private ShooterHandeler shooterHandeler = null;
 
-    public void Shoot(AudioManager audio) {
+    public bool Shoot(AudioManager audio) {
         switch(power) {
             case 1:
-                break;
+                if(currentP1 - p1Cost <= 0) {
+                    return false;
+                }
+                currentP1 -= p1Cost;
+                GameManager.Instance.UI.P1Slider.value = currentP1;
+                return true;
             case 2:
-                break;
+                if(currentP2 - p1Cost <= 0) {
+                    return false;
+                }
+                currentP2 -= p2Cost;
+                GameManager.Instance.UI.P2Slider.value = currentP2;
+                return true;
             case 3:
-                break;
+                if(currentP3 - p3Cost <= 0) {
+                    return false;
+                }
+                currentP3 -= p3Cost;
+                GameManager.Instance.UI.P3Slider.value = currentP3;
+                return true;
             default:
-                break;
+                return false;
         }
     }
 }
