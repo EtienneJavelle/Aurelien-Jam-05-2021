@@ -483,6 +483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4066183818845244718}
+  - component: {fileID: 5164833152140169913}
   m_Layer: 0
   m_Name: Wall_Broken
   m_TagString: Untagged
@@ -515,6 +516,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5164833152140169913
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593870947962077842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.804648, y: 1.54, z: 15.266295}
+  m_Center: {x: -0.44767705, y: 0.42000008, z: 2.9831514}
 --- !u!1 &5572588494853942256
 GameObject:
   m_ObjectHideFlags: 0
