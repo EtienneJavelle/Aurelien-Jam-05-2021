@@ -292,6 +292,6 @@ MonoBehaviour:
   sounds:
   - name: Pew
     clip: {fileID: 8300000, guid: 3c2ba60e6ab8a7f4b9436ecaaaaeaf00, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0.128
+    pitch: 2.27
     loop: 0
