@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1030694491663910864
 Transform:
@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361998266921131370}
-  m_LocalRotation: {x: 0.46814868, y: 0.5299405, z: 0.52994007, w: -0.46814907}
+  m_LocalRotation: {x: -0.4681502, y: -0.5299391, z: -0.5299391, w: 0.4681502}
   m_LocalPosition: {x: 0, y: 3.16, z: 0}
-  m_LocalScale: {x: 0.42979977, y: 0.42979977, z: 0.67539465}
+  m_LocalScale: {x: 0.42979982, y: 0.4297997, z: 0.67539465}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -97.08501}
 --- !u!33 &4170923386162858101
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -58,8 +58,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 556eb6f1ea246624c8242ae8771b83d8, type: 2}
-  - {fileID: 2100000, guid: 2aeddd207c4802a47b3e98520371e894, type: 2}
+  - {fileID: 2100000, guid: 64972c0da25c86547a2e9a1569dd3ee7, type: 2}
+  - {fileID: 2100000, guid: 52f1310157eef4645b832db23b571607, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

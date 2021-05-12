@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 080012a6f1655974abc20a806f00f39d
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _Spring: {fileID: 2800000, guid: 20df0024c69cfd948afeb4a98fcc1f99, type: 3}
+  - _automn: {fileID: 2800000, guid: 20df0024c69cfd948afeb4a98fcc1f99, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
