@@ -2,10 +2,11 @@
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
+    [SerializeField] private GameObject explosion = null;
     [SerializeField] private float speed = 6f;
     [SerializeField] private float lifeTime = 5f;
     [SerializeField] private float growTime = .2f;
-    public GameObject Vfx_Explosion;
+    [SerializeField] private GameObject Vfx_Explosion;
 
     private void OnTriggerEnter(Collider other) {
         if(other.TryGetComponent<Enemy>(out Enemy enemy)) {
@@ -13,7 +14,12 @@ public class Bullet : MonoBehaviour {
         } else if(other.TryGetComponent<DeathHandeler>(out DeathHandeler player)) {
             player.enabled = true;
         }
-        GameObject.Instantiate(Vfx_Explosion, transform.position, Quaternion.identity);
+        if(Vfx_Explosion != null) {
+            GameObject.Instantiate(Vfx_Explosion, transform.position, Quaternion.identity);
+        }
+        if(explosion != null) {
+            GameObject.Instantiate(explosion, transform.position, Quaternion.identity);
+        }
         GameObject.Destroy(gameObject);
     }
 

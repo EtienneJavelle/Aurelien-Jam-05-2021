@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565226972c2b11644b00fb0b700e9f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 794624530367635521, guid: 07ce999bc10349346b3fb5b9b1b0d21e,
+    type: 3}
   speed: 40
   lifeTime: 8
   growTime: 0.1

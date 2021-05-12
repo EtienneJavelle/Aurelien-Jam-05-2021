@@ -55,10 +55,8 @@ public class PowerHandeler : MonoBehaviour {
     }
 
     private IEnumerator RegainMana() {
-        print("Start");
         while(true) {
             yield return new WaitForSecondsRealtime(coolDown / 1000f);
-            print("update");
             currentP1 = Mathf.Min(100, currentP1 + amountGained);
             GameManager.Instance.UI.P1Slider.value = currentP1;
             currentP2 = Mathf.Min(100, currentP2 + amountGained);

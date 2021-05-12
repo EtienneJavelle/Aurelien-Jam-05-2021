@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4392227381569658307}
   - component: {fileID: 818397415789498982}
   - component: {fileID: 3224435861255612076}
+  - component: {fileID: 6528129868612712512}
   m_Layer: 0
   m_Name: BallonRouge
   m_TagString: Untagged
@@ -80,3 +81,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &6528129868612712512
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017073586660722553}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cedff035618e7c84ba44d82eeee26542, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
