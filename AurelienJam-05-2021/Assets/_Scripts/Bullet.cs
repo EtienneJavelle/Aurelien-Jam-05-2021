@@ -10,14 +10,14 @@ public class Bullet : MonoBehaviour {
         } else if(other.TryGetComponent<DeathHandeler>(out DeathHandeler player)) {
             player.enabled = true;
         }
-        GameObject.Destroy(this.gameObject);
+        GameObject.Destroy(gameObject);
     }
 
     private void OnEnable() {
-        GameObject.Destroy(this.gameObject, this.lifeTime);
+        GameObject.Destroy(gameObject, lifeTime);
     }
 
     private void Update() {
-        this.transform.position += this.transform.forward * this.speed * Time.deltaTime;
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 }

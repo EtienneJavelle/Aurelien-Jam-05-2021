@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
+    [SerializeField] private LayerMask layers = 1024;
     [SerializeField] private float backSpeed = 6f, forwardSpeed = 10f;
     [SerializeField] private float shootRangeMin = 10f, shootRangeMax = 15f;
     [SerializeField, Range(0f, 1f)] private float turnSpeed = .5f;
@@ -8,41 +10,54 @@ public class Enemy : MonoBehaviour {
     private void Awake() {
         shooter = GetComponentInChildren<Shooter>();
         shooter.enabled = false;
-        //rigidbody = GetComponent<Rigidbody>();
-        controller = GetComponent<CharacterController>();
+        agent = GetComponent<NavMeshAgent>();
     }
-
+    private void Start() {
+        playerTransform = GameManager.Instance.Player.transform;
+    }
     public void Die() {
         GameObject.Destroy(gameObject);
     }
 
-    private void FixedUpdate() {
-
-        Vector3 targetPos = GameManager.Instance.Player.transform.position;
-
-        Vector3 direction = targetPos - transform.position;
+    private void Update() {
+        Vector3 direction = transform.position - playerTransform.position;
+        Vector3 targetPos = transform.position;
         direction.Normalize();
 
-        if(Vector3.Distance(targetPos, transform.position) < shootRangeMin) {
-            controller.SimpleMove(-direction.normalized * backSpeed);
-            //rigidbody.MovePosition(transform.position - (direction.normalized * backSpeed * Time.deltaTime));
-            //transform.position -= direction.normalized * backSpeed * Time.deltaTime;
-        } else if(Vector3.Distance(targetPos, transform.position) < shootRangeMax) {
-            shooter.enabled = true;
+
+        if(Vector3.Distance(playerTransform.position, transform.position) < shootRangeMin) {
+            targetPos = playerTransform.position + direction * shootRangeMin;
+            agent.speed = backSpeed;
+        } else if(Vector3.Distance(playerTransform.position, transform.position) <= shootRangeMax) {
+            Ray ray = new Ray(transform.position + Vector3.up, -direction);
+            if(Physics.Raycast(ray, out RaycastHit hit, shootRangeMax, layers)
+                && hit.collider.gameObject == playerTransform.gameObject) {
+                Debug.DrawLine(transform.position + Vector3.up, hit.point, Color.blue);
+                shooter.enabled = true;
+            } else {
+                targetPos += Vector3.left + transform.rotation.eulerAngles;
+                shooter.enabled = false;
+            }
         } else {
-            controller.SimpleMove(direction.normalized * forwardSpeed);
-            //rigidbody.MovePosition(transform.position + (direction.normalized * forwardSpeed * Time.deltaTime));
-            //transform.position += direction.normalized * forwardSpeed * Time.deltaTime;
+            targetPos = playerTransform.position + direction * shootRangeMax;
+            agent.speed = forwardSpeed;
             shooter.enabled = false;
         }
+        agent.destination = targetPos;
         direction.y = 0;
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
-            Quaternion.LookRotation(direction, transform.up),
+            Quaternion.LookRotation(-direction, transform.up),
             turnSpeed);
     }
 
-    private new Rigidbody rigidbody = null;
-    private CharacterController controller = null;
+    private void OnDrawGizmos() {
+        if(Application.isPlaying) {
+            Gizmos.DrawWireSphere(agent.destination, 1);
+        }
+    }
+
+    private Transform playerTransform = null;
+    private NavMeshAgent agent = null;
     private Shooter shooter = null;
 }
