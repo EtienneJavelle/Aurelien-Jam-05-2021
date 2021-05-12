@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalBullet: {fileID: 2390007185441523571, guid: bae69b485c7d0194e9eab8be536a3601,
     type: 3}
-  normalFirerate: 900
+  normalFirerate: 1000
   isOnlySpecial: 0
 --- !u!114 &4929117085964703211
 MonoBehaviour:

@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour {
         animator.SetBool("IsStrafing", true);
     }
     public void Die() {
-        GameManager.Instance.UI.AddScore(2);
+        GameManager.Instance.UI.AddScore(100);
         GameObject.Destroy(gameObject);
 
 
