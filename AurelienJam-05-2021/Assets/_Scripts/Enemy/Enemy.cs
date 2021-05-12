@@ -11,9 +11,12 @@ public class Enemy : MonoBehaviour {
         shooter = GetComponentInChildren<Shooter>();
         shooter.enabled = false;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
     }
     private void Start() {
         playerTransform = GameManager.Instance.Player.transform;
+        animator.SetBool("IsGrounded", true);
+        animator.SetBool("IsStrafing", true);
     }
     public void Die() {
         GameObject.Destroy(gameObject);
@@ -28,12 +31,15 @@ public class Enemy : MonoBehaviour {
         if(Vector3.Distance(playerTransform.position, transform.position) < shootRangeMin) {
             targetPos = playerTransform.position + direction * shootRangeMin;
             agent.speed = backSpeed;
+            animator.SetFloat("HorizontalSpeed", 1f);
+            animator.SetFloat("ForwardSpeed", -10f);
         } else if(Vector3.Distance(playerTransform.position, transform.position) <= shootRangeMax) {
             Ray ray = new Ray(transform.position + Vector3.up, -direction);
             if(Physics.Raycast(ray, out RaycastHit hit, shootRangeMax, layers)
                 && hit.collider.gameObject == playerTransform.gameObject) {
                 Debug.DrawLine(transform.position + Vector3.up, hit.point, Color.blue);
                 shooter.enabled = true;
+                animator.SetFloat("HorizontalSpeed", 0f);
             } else {
                 targetPos += Vector3.left + transform.rotation.eulerAngles;
                 shooter.enabled = false;
@@ -42,6 +48,8 @@ public class Enemy : MonoBehaviour {
             targetPos = playerTransform.position + direction * shootRangeMax;
             agent.speed = forwardSpeed;
             shooter.enabled = false;
+            animator.SetFloat("HorizontalSpeed", 1f);
+            animator.SetFloat("ForwardSpeed", 10f);
         }
         agent.destination = targetPos;
         direction.y = 0;
@@ -57,6 +65,7 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    private Animator animator = null;
     private Transform playerTransform = null;
     private NavMeshAgent agent = null;
     private Shooter shooter = null;

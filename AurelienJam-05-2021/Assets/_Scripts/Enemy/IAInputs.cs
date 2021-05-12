@@ -14,4 +14,8 @@
     public override bool IsShootKeyPressed() {
         return true;
     }
+
+    public override bool IsSpecialKeyPressed() {
+        return false;
+    }
 }

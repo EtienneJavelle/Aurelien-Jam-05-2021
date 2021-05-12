@@ -7,32 +7,37 @@ namespace CMF {
         [SerializeField] private string verticalInputAxis = "Vertical";
         [SerializeField] private KeyCode jumpKey = KeyCode.Space;
         [SerializeField] private KeyCode shootKey = KeyCode.Mouse0;
+        [SerializeField] private KeyCode specialKey = KeyCode.Mouse1;
 
         //If this is enabled, Unity's internal input smoothing is bypassed;
         [SerializeField] private bool useRawInput = true;
 
         public override float GetHorizontalMovementInput() {
-            if(this.useRawInput) {
-                return Input.GetAxisRaw(this.horizontalInputAxis);
+            if(useRawInput) {
+                return Input.GetAxisRaw(horizontalInputAxis);
             } else {
-                return Input.GetAxis(this.horizontalInputAxis);
+                return Input.GetAxis(horizontalInputAxis);
             }
         }
 
         public override float GetVerticalMovementInput() {
-            if(this.useRawInput) {
-                return Input.GetAxisRaw(this.verticalInputAxis);
+            if(useRawInput) {
+                return Input.GetAxisRaw(verticalInputAxis);
             } else {
-                return Input.GetAxis(this.verticalInputAxis);
+                return Input.GetAxis(verticalInputAxis);
             }
         }
 
         public override bool IsJumpKeyPressed() {
-            return Input.GetKey(this.jumpKey);
+            return Input.GetKey(jumpKey);
         }
 
         public override bool IsShootKeyPressed() {
-            return Input.GetKey(this.shootKey);
+            return Input.GetKey(shootKey);
+        }
+
+        public override bool IsSpecialKeyPressed() {
+            return Input.GetKey(specialKey);
         }
     }
 }

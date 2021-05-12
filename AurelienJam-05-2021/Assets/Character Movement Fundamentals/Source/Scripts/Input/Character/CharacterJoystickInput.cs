@@ -9,6 +9,7 @@ namespace CMF {
         public string verticalInputAxis = "Vertical";
         public KeyCode jumpKey = KeyCode.Joystick1Button0;
         public KeyCode shootKey = KeyCode.Joystick1Button14;
+        public KeyCode specialKey = KeyCode.Joystick1Button15;
 
         //If this is enabled, Unity's internal input smoothing is bypassed;
         public bool useRawInput = true;
@@ -20,14 +21,14 @@ namespace CMF {
         public override float GetHorizontalMovementInput() {
             float _horizontalInput;
 
-            if(this.useRawInput) {
-                _horizontalInput = Input.GetAxisRaw(this.horizontalInputAxis);
+            if(useRawInput) {
+                _horizontalInput = Input.GetAxisRaw(horizontalInputAxis);
             } else {
-                _horizontalInput = Input.GetAxis(this.horizontalInputAxis);
+                _horizontalInput = Input.GetAxis(horizontalInputAxis);
             }
 
             //Set any input values below threshold to '0';
-            if(Mathf.Abs(_horizontalInput) < this.deadZoneThreshold) {
+            if(Mathf.Abs(_horizontalInput) < deadZoneThreshold) {
                 _horizontalInput = 0f;
             }
 
@@ -37,14 +38,14 @@ namespace CMF {
         public override float GetVerticalMovementInput() {
             float _verticalInput;
 
-            if(this.useRawInput) {
-                _verticalInput = Input.GetAxisRaw(this.verticalInputAxis);
+            if(useRawInput) {
+                _verticalInput = Input.GetAxisRaw(verticalInputAxis);
             } else {
-                _verticalInput = Input.GetAxis(this.verticalInputAxis);
+                _verticalInput = Input.GetAxis(verticalInputAxis);
             }
 
             //Set any input values below threshold to '0';
-            if(Mathf.Abs(_verticalInput) < this.deadZoneThreshold) {
+            if(Mathf.Abs(_verticalInput) < deadZoneThreshold) {
                 _verticalInput = 0f;
             }
 
@@ -52,11 +53,15 @@ namespace CMF {
         }
 
         public override bool IsJumpKeyPressed() {
-            return Input.GetKey(this.jumpKey);
+            return Input.GetKey(jumpKey);
         }
 
         public override bool IsShootKeyPressed() {
-            return Input.GetKey(this.shootKey);
+            return Input.GetKey(shootKey);
+        }
+
+        public override bool IsSpecialKeyPressed() {
+            return Input.GetKey(specialKey);
         }
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour {
 
-    [SerializeField] private GameObject bullet = null;
-    [SerializeField, Range(0f, 1000f)] private float fireRate = 500f;
+    [SerializeField] private GameObject normalBullet = null, specialBullet = null;
+    [SerializeField, Range(0f, 1000f)] private float normalFirerate = 500f, specialFirerate = 60f;
 
     private void Awake() {
         characterInput = transform.parent.parent.GetComponent<CMF.CharacterInput>();
@@ -31,14 +31,17 @@ public class Shooter : MonoBehaviour {
 
     private void HandleShootingInput() {
         bool isShootKeyDown = characterInput.IsShootKeyPressed();
-        if(isShootKeyDown) {
+        bool isSpecialKeyDown = characterInput.IsSpecialKeyPressed();
+        if(isShootKeyDown || isSpecialKeyDown) {
+            firerate = isSpecialKeyDown ? specialFirerate : normalFirerate;
+            bullet = isSpecialKeyDown ? specialBullet : normalBullet;
             if(!wasShootKeyDown) {
                 shootLoop = StartCoroutine(ShootLoop());
             }
         } else if(shootLoop != null) {
             StopCoroutine(shootLoop);
         }
-        wasShootKeyDown = isShootKeyDown;
+        wasShootKeyDown = isShootKeyDown || isSpecialKeyDown;
     }
 
 
@@ -51,12 +54,12 @@ public class Shooter : MonoBehaviour {
             if(canShoot) {
                 Shoot();
             }
-            yield return new WaitForSecondsRealtime(fireRate / 1000f);
+            yield return new WaitForSecondsRealtime(firerate / 1000f);
         }
     }
 
     private IEnumerator ShootCooldown() {
-        yield return new WaitForSecondsRealtime(fireRate / 1000f);
+        yield return new WaitForSecondsRealtime(firerate / 1000f);
         canShoot = true;
     }
 
@@ -72,6 +75,8 @@ public class Shooter : MonoBehaviour {
         Handles.color = old;
     }
 
+    private GameObject bullet = null;
+    private float firerate = 0f;
     private new AudioManager audio = null;
     private Transform character = null;
     private bool canShoot = true;

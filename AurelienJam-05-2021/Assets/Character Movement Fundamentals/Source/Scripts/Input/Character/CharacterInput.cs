@@ -10,5 +10,6 @@ namespace CMF {
 
         public abstract bool IsJumpKeyPressed();
         public abstract bool IsShootKeyPressed();
+        public abstract bool IsSpecialKeyPressed();
     }
 }
