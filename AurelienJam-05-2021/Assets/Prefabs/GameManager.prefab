@@ -228,7 +228,7 @@ MonoBehaviour:
   p1Slider: {fileID: 4379730154498615302}
   p2Slider: {fileID: 6540077163778255769}
   p3Slider: {fileID: 4078995501998707162}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 2077274247228354929}
 --- !u!1 &5781529780195154391
 GameObject:
   m_ObjectHideFlags: 0
