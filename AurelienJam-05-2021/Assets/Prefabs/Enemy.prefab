@@ -387,8 +387,8 @@ MonoBehaviour:
     m_Bits: 1847
   backSpeed: 6
   forwardSpeed: 15
-  shootRangeMin: 4
-  shootRangeMax: 13
+  shootRangeMin: 5
+  shootRangeMax: 15
   turnSpeed: 0.5
 --- !u!114 &7321171721053348340
 MonoBehaviour:
@@ -610,8 +610,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0e0bce17cedca45988a8d06404f8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7040624712344766809, guid: 57791564b33d2574090d10a60cedc78d, type: 3}
-  fireRate: 800
+  normalBullet: {fileID: 7040624712344766809, guid: 57791564b33d2574090d10a60cedc78d,
+    type: 3}
+  specialBullet: {fileID: 0}
+  normalFirerate: 461
+  specialFirerate: 60
 --- !u!114 &2574374165103303919
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -44,8 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0e0bce17cedca45988a8d06404f8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 794624530367635521, guid: a43eb045ae0330f48aac0ff90f26e0a4, type: 3}
-  fireRate: 500
+  normalBullet: {fileID: 794624530367635521, guid: a43eb045ae0330f48aac0ff90f26e0a4,
+    type: 3}
+  specialBullet: {fileID: 794624530367635521, guid: be68fe3d20599d54fb6ed5a04e827ea4,
+    type: 3}
+  normalFirerate: 461
+  specialFirerate: 60
 --- !u!114 &5768491410937446343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +235,7 @@ MonoBehaviour:
   verticalInputAxis: Vertical
   jumpKey: 32
   shootKey: 323
+  specialKey: 324
   useRawInput: 1
 --- !u!114 &8830637261652582984
 MonoBehaviour:

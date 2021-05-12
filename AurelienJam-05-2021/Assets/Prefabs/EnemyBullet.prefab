@@ -109,3 +109,5 @@ MonoBehaviour:
   speed: 6
   lifeTime: 5
   growTime: 0.2
+  Vfx_Explosion: {fileID: 5360626396546786413, guid: 588372764d5d3314e9f9961670224038,
+    type: 3}
