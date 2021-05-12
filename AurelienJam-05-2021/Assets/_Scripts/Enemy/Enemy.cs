@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private float shootRangeMin = 10f, shootRangeMax = 15f;
     [SerializeField, Range(0f, 1f)] private float turnSpeed = .5f;
 
+
+
     private void Awake() {
         shooter = GetComponentInChildren<Shooter>();
         shooter.enabled = false;
@@ -19,7 +21,10 @@ public class Enemy : MonoBehaviour {
         animator.SetBool("IsStrafing", true);
     }
     public void Die() {
+        GameManager.Instance.UI.AddScore(2);
         GameObject.Destroy(gameObject);
+        
+
     }
 
     private void Update() {
