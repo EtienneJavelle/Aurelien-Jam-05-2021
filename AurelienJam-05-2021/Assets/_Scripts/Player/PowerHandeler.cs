@@ -128,7 +128,7 @@ public class PowerHandeler : MonoBehaviour {
         }
     }
 
-
+    private bool canP1 = true, canP2 = true, canP3 = true;
     private float currentP1 = 100f, currentP2 = 100f, currentP3 = 100f;
     private ShooterHandeler shooterHandeler = null;
     private Animator animator = null;
