@@ -62,6 +62,8 @@ MonoBehaviour:
   speed: 40
   lifeTime: 8
   growTime: 0.1
+  Vfx_Explosion: {fileID: 5360626396546786413, guid: 588372764d5d3314e9f9961670224038,
+    type: 3}
 --- !u!54 &4347709913825237761
 Rigidbody:
   m_ObjectHideFlags: 0
