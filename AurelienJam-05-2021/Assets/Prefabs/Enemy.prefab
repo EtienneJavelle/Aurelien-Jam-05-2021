@@ -386,7 +386,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1847
   backSpeed: 6
-  forwardSpeed: 15
+  forwardSpeed: 8
   shootRangeMin: 5
   shootRangeMax: 15
   turnSpeed: 0.5
@@ -613,8 +613,8 @@ MonoBehaviour:
   normalBullet: {fileID: 7040624712344766809, guid: 57791564b33d2574090d10a60cedc78d,
     type: 3}
   specialBullet: {fileID: 0}
-  normalFirerate: 461
-  specialFirerate: 60
+  normalFirerate: 880
+  specialFirerate: 880
 --- !u!114 &2574374165103303919
 MonoBehaviour:
   m_ObjectHideFlags: 0

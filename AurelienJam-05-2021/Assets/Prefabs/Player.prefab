@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5e44db14072ea4c964da3b192181c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 9
+  movementSpeed: 10
   airControl: 0.4
   jumpSpeed: 10
   jumpDuration: 0.2
@@ -136,6 +136,7 @@ MonoBehaviour:
   verticalInputAxis: Vertical
   jumpKey: 32
   shootKey: 323
+  specialKey: 324
   useRawInput: 1
 --- !u!114 &1601162371863500999
 MonoBehaviour:
@@ -794,8 +795,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0e0bce17cedca45988a8d06404f8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 794624530367635521, guid: a43eb045ae0330f48aac0ff90f26e0a4, type: 3}
-  fireRate: 500
+  normalBullet: {fileID: 0}
+  specialBullet: {fileID: 0}
+  normalFirerate: 500
+  specialFirerate: 20
 --- !u!114 &4375542927906391368
 MonoBehaviour:
   m_ObjectHideFlags: 0
