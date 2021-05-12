@@ -22,6 +22,10 @@ public class Bullet : MonoBehaviour {
         transform.DOScale(scale, growTime);
     }
 
+    private void OnDestroy() {
+        transform.DOKill();
+    }
+
     private void Update() {
         transform.position += transform.forward * speed * Time.deltaTime;
     }

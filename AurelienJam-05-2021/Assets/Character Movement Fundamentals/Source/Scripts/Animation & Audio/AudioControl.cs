@@ -74,7 +74,7 @@ namespace CMF {
                     //Only play footstep sound if mover is grounded and movement speed is above the threshold;
                     if(mover.IsGrounded() && _movementSpeed > _speedThreshold) {
                         PlayFootstepSound(_movementSpeed);
-                        GameObject.Destroy(Instantiate(Resources.Load("Prefabs/Footprint"), transform.position, Quaternion.identity, null), 2f);
+                        Instantiate(Resources.Load("Prefabs/Footprint"), transform.position, Quaternion.identity, null);
                     }
                 }
                 currentFootStepValue = _newFootStepValue;

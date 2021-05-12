@@ -10,6 +10,7 @@ public class Shooter : MonoBehaviour {
     private void Awake() {
         characterInput = transform.parent.parent.GetComponent<CMF.CharacterInput>();
         character = transform.parent.parent;
+        audio = GetComponent<AudioManager>();
     }
 
     private void OnDisable() {
@@ -60,6 +61,7 @@ public class Shooter : MonoBehaviour {
     }
 
     private void Shoot() {
+        audio.Play("Pew");
         Instantiate(bullet, transform.position, transform.rotation, null);
     }
 
@@ -70,6 +72,7 @@ public class Shooter : MonoBehaviour {
         Handles.color = old;
     }
 
+    private new AudioManager audio = null;
     private Transform character = null;
     private bool canShoot = true;
     private Coroutine shootLoop = null;

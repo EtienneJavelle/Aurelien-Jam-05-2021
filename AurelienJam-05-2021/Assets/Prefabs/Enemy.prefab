@@ -241,6 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7321171721723225932}
   - component: {fileID: 7321171721723225933}
+  - component: {fileID: 2574374165103303919}
   m_Layer: 8
   m_Name: Shooter
   m_TagString: Untagged
@@ -276,3 +277,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7040624712344766809, guid: 57791564b33d2574090d10a60cedc78d, type: 3}
   fireRate: 800
+--- !u!114 &2574374165103303919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321171721723225935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214060ed9a5fde64b9677af84ff8576e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Pew
+    clip: {fileID: 8300000, guid: 3c2ba60e6ab8a7f4b9436ecaaaaeaf00, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
