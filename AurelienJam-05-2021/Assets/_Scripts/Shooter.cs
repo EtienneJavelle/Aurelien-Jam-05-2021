@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class Shooter : MonoBehaviour {
@@ -7,18 +8,19 @@ public class Shooter : MonoBehaviour {
     [SerializeField, Range(0f, 1000f)] private float fireRate = 500f;
 
     private void Awake() {
-        this.characterInput = this.transform.parent.parent.GetComponent<CMF.CharacterInput>();
+        characterInput = transform.parent.parent.GetComponent<CMF.CharacterInput>();
+        character = transform.parent.parent;
     }
 
     private void OnDisable() {
-        if(this.shootLoop != null) {
-            StopCoroutine(this.shootLoop);
+        if(shootLoop != null) {
+            StopCoroutine(shootLoop);
         }
     }
 
     private void OnEnable() {
-        this.canShoot = true;
-        this.wasShootKeyDown = false;
+        canShoot = true;
+        wasShootKeyDown = false;
         HandleShootingInput();
     }
 
@@ -27,40 +29,48 @@ public class Shooter : MonoBehaviour {
     }
 
     private void HandleShootingInput() {
-        bool isShootKeyDown = this.characterInput.IsShootKeyPressed();
+        bool isShootKeyDown = characterInput.IsShootKeyPressed();
         if(isShootKeyDown) {
-            if(!this.wasShootKeyDown) {
-                this.shootLoop = StartCoroutine(ShootLoop());
+            if(!wasShootKeyDown) {
+                shootLoop = StartCoroutine(ShootLoop());
             }
-        } else if(this.shootLoop != null) {
-            StopCoroutine(this.shootLoop);
+        } else if(shootLoop != null) {
+            StopCoroutine(shootLoop);
         }
-        this.wasShootKeyDown = isShootKeyDown;
+        wasShootKeyDown = isShootKeyDown;
     }
 
 
     private IEnumerator ShootLoop() {
-        if(this.canShoot) {
-            this.canShoot = false;
+        if(canShoot) {
+            canShoot = false;
             StartCoroutine(ShootCooldown());
         }
         while(true) {
-            if(this.canShoot) {
+            if(canShoot) {
                 Shoot();
             }
-            yield return new WaitForSecondsRealtime(this.fireRate / 1000f);
+            yield return new WaitForSecondsRealtime(fireRate / 1000f);
         }
     }
 
     private IEnumerator ShootCooldown() {
-        yield return new WaitForSecondsRealtime(this.fireRate / 1000f);
-        this.canShoot = true;
+        yield return new WaitForSecondsRealtime(fireRate / 1000f);
+        canShoot = true;
     }
 
     private void Shoot() {
-        Instantiate(this.bullet, this.transform.position, this.transform.rotation, null);
+        Instantiate(bullet, transform.position, transform.rotation, null);
     }
 
+    private void OnDrawGizmos() {
+        Color old = Handles.color;
+        Handles.color = Color.cyan;
+        Handles.ArrowHandleCap(0, transform.position, transform.rotation, 2, EventType.Repaint);
+        Handles.color = old;
+    }
+
+    private Transform character = null;
     private bool canShoot = true;
     private Coroutine shootLoop = null;
     private bool wasShootKeyDown = false;

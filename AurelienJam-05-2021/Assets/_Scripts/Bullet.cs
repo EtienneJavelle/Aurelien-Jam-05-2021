@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour {
     [SerializeField] private float speed = 6f;
     [SerializeField] private float lifeTime = 5f;
+    [SerializeField] private float growTime = .2f;
 
     private void OnTriggerEnter(Collider other) {
         if(other.TryGetComponent<Enemy>(out Enemy enemy)) {
@@ -15,6 +17,9 @@ public class Bullet : MonoBehaviour {
 
     private void OnEnable() {
         GameObject.Destroy(gameObject, lifeTime);
+        Vector3 scale = transform.localScale;
+        transform.localScale = Vector3.zero;
+        transform.DOScale(scale, growTime);
     }
 
     private void Update() {
