@@ -9,20 +9,24 @@ public class PowerHandeler : MonoBehaviour {
     [Header("Power 1")]
     [SerializeField] private float p1Cost = 10;
     [SerializeField] private float p1Firerate = 60f;
-    [SerializeField] private GameObject p1Object = null;
+    [SerializeField] private GameObject p1Object = null, p1Character = null;
+    [SerializeField] private Avatar p1Avatar = null;
     [Header("Power 2")]
     [SerializeField] private float p2Cost = 30;
     [SerializeField] private float p2Firerate = 500f;
-    [SerializeField] private GameObject p2Object = null;
+    [SerializeField] private GameObject p2Object = null, p2Character = null;
+    [SerializeField] private Avatar p2Avatar = null;
     [Header("Power 3")]
     [SerializeField] private float p3Cost = 60;
     [SerializeField] private float p3Firerate = 800f;
-    [SerializeField] private GameObject p3Object = null;
+    [SerializeField] private GameObject p3Object = null, p3Character = null;
+    [SerializeField] private Avatar p3Avatar = null;
     [SerializeField] private int shooterAmount = 9;
     [SerializeField] private float angle = 360f;
 
     private void Awake() {
         shooterHandeler = GetComponentInChildren<ShooterHandeler>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start() {
@@ -70,22 +74,31 @@ public class PowerHandeler : MonoBehaviour {
         power = 1;
         shooterHandeler.SpawnShooters(1);
         shooterHandeler.MainShooter.SetSpecial(p1Firerate, p1Object);
+        animator.avatar = p1Avatar;
+        p1Character.SetActive(true);
+        p2Character.SetActive(false);
+        p3Character.SetActive(false);
     }
 
     private void SetPower2() {
         power = 2;
         shooterHandeler.SpawnShooters(1);
         shooterHandeler.MainShooter.SetSpecial(p2Firerate, p2Object);
+        animator.avatar = p2Avatar;
+        p1Character.SetActive(false);
+        p2Character.SetActive(true);
+        p3Character.SetActive(false);
     }
 
     private void SetPower3() {
         power = 3;
         shooterHandeler.SpawnShooters(shooterAmount, angle, p3Firerate, p3Object);
         shooterHandeler.MainShooter.SetSpecial(p3Firerate, p3Object);
+        animator.avatar = p3Avatar;
+        p1Character.SetActive(false);
+        p2Character.SetActive(false);
+        p3Character.SetActive(true);
     }
-
-    private float currentP1 = 100f, currentP2 = 100f, currentP3 = 100f;
-    private ShooterHandeler shooterHandeler = null;
 
     public bool Shoot(AudioManager audio) {
         switch(power) {
@@ -114,4 +127,9 @@ public class PowerHandeler : MonoBehaviour {
                 return false;
         }
     }
+
+
+    private float currentP1 = 100f, currentP2 = 100f, currentP3 = 100f;
+    private ShooterHandeler shooterHandeler = null;
+    private Animator animator = null;
 }
