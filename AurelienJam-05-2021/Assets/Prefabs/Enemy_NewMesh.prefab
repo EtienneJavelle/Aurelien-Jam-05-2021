@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4968468446140696818}
   - component: {fileID: 1926492438130291328}
   m_Layer: 8
-  m_Name: Enemy 1
+  m_Name: Enemy_NewMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,10 +276,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0e0bce17cedca45988a8d06404f8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalBullet: {fileID: 7040624712344766809, guid: 57791564b33d2574090d10a60cedc78d,
+  normalBullet: {fileID: 2390007185441523571, guid: bae69b485c7d0194e9eab8be536a3601,
     type: 3}
   normalFirerate: 880
-  isOnlySpecial: 1
+  isOnlySpecial: 0
 --- !u!114 &4929117085964703211
 MonoBehaviour:
   m_ObjectHideFlags: 0

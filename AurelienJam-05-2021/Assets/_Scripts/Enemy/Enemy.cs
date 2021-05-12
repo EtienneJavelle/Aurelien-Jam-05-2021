@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour {
     public void Die() {
         GameManager.Instance.UI.AddScore(2);
         GameObject.Destroy(gameObject);
-        
+
 
     }
 
