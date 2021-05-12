@@ -45,7 +45,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7722163166849803925
 MonoBehaviour:
@@ -63,7 +63,8 @@ MonoBehaviour:
   speed: 0
   lifeTime: 1
   growTime: 0.02
-  Vfx_Explosion: {fileID: 0}
+  Vfx_Explosion: {fileID: 4117647414231000725, guid: 8d33af86942e3754795118b16140cdd6,
+    type: 3}
 --- !u!54 &4347709913825237761
 Rigidbody:
   m_ObjectHideFlags: 0
