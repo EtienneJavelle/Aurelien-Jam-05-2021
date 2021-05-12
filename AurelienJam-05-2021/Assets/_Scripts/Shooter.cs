@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour {
 
-    [SerializeField] private GameObject normalBullet = null, specialBullet = null;
-    [SerializeField, Range(0f, 1000f)] private float normalFirerate = 500f, specialFirerate = 60f;
+    [SerializeField] private GameObject normalBullet = null;
+    [SerializeField, Range(0f, 1000f)] private float normalFirerate = 500f;
+    [SerializeField] private bool isOnlySpecial = true;
 
     private void Awake() {
-        characterInput = transform.parent.parent.GetComponent<CMF.CharacterInput>();
-        character = transform.parent.parent;
+        characterInput = transform.GetComponentInParent<CMF.CharacterInput>();
+        powerHandeler = transform.GetComponentInParent<PowerHandeler>();
+        character = transform.parent;
         audio = GetComponent<AudioManager>();
+    }
+
+    public void SetSpecial(float firerate, GameObject prerfab) {
+        specialFirerate = firerate;
+        specialBullet = prerfab;
     }
 
     private void OnDisable() {
@@ -32,6 +39,9 @@ public class Shooter : MonoBehaviour {
     private void HandleShootingInput() {
         bool isShootKeyDown = characterInput.IsShootKeyPressed();
         bool isSpecialKeyDown = characterInput.IsSpecialKeyPressed();
+        if(isShootKeyDown && isOnlySpecial) {
+            return;
+        }
         if(isShootKeyDown || isSpecialKeyDown) {
             firerate = isSpecialKeyDown ? specialFirerate : normalFirerate;
             bullet = isSpecialKeyDown ? specialBullet : normalBullet;
@@ -63,8 +73,12 @@ public class Shooter : MonoBehaviour {
         canShoot = true;
     }
 
-    private void Shoot() {
-        audio.Play("Pew");
+    public void Shoot() {
+        if(firerate - specialFirerate <= 0.001f) {
+            powerHandeler.Shoot(audio);
+        } else {
+            audio.Play("Pew");
+        }
         Instantiate(bullet, transform.position, transform.rotation, null);
     }
 
@@ -75,12 +89,13 @@ public class Shooter : MonoBehaviour {
         Handles.color = old;
     }
 
-    private GameObject bullet = null;
-    private float firerate = 0f;
+    private GameObject bullet = null, specialBullet = null;
+    private float firerate = 0f, specialFirerate = 60f;
     private new AudioManager audio = null;
     private Transform character = null;
     private bool canShoot = true;
     private Coroutine shootLoop = null;
     private bool wasShootKeyDown = false;
     private CMF.CharacterInput characterInput;
+    private PowerHandeler powerHandeler = null;
 }

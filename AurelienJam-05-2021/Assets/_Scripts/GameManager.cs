@@ -3,21 +3,23 @@
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
 
-    public AudioManager AudioManager { get => this.audioManager; }
-    public GameObject Player { get => this.player; }
+    public AudioManager AudioManager { get => audioManager; }
+    public GameObject Player { get => player; }
+    public UIManager UI { get => uI; }
 
     [SerializeField] private AudioManager audioManager = null;
     [SerializeField] private GameObject player = null;
+    [SerializeField] private UIManager uI = null;
 
 
     private void Awake() {
         if(GameManager.Instance == null) {
             GameManager.Instance = this;
         } else {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
-        this.transform.parent = null;
-        DontDestroyOnLoad(this.gameObject);
+        transform.parent = null;
+        DontDestroyOnLoad(gameObject);
     }
 }
