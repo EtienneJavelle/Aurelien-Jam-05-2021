@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour {
         } else if(other.TryGetComponent<DeathHandeler>(out DeathHandeler player)) {
             player.enabled = true;
         }
-        GameObject.Instantiate(Vfx_Explosion,transform.position, Quaternion.identity);
+        GameObject.Instantiate(Vfx_Explosion, transform.position, Quaternion.identity);
         GameObject.Destroy(gameObject);
     }
 
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour {
         GameObject.Destroy(gameObject, lifeTime);
         Vector3 scale = transform.localScale;
         transform.localScale = Vector3.zero;
-        transform.DOScale(scale, growTime);
+        transform.DOScale(scale, growTime).OnComplete(() => transform.DOScale(0, lifeTime - growTime).SetEase(Ease.InExpo));
     }
 
     private void OnDestroy() {
