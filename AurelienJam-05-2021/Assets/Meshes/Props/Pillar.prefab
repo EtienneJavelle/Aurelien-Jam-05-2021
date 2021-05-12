@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 170572308646672792}
   - component: {fileID: 3887210149754451517}
   - component: {fileID: 1303460317803102967}
+  - component: {fileID: 8684866870666029373}
   m_Layer: 0
   m_Name: Pillar
   m_TagString: Untagged
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8684866870666029373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654761583613272866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6378121, y: 2.652641, z: 6.872685}
+  m_Center: {x: 0.0042167897, y: -0.044429135, z: 3.436343}

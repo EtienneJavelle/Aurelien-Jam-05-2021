@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7312542840785779041}
   - component: {fileID: 5968542109837539012}
   - component: {fileID: 8444374804320174606}
+  - component: {fileID: 4301179796256988595}
+  - component: {fileID: 7611301160081084643}
   m_Layer: 0
   m_Name: SmallChair
   m_TagString: Untagged
@@ -80,3 +82,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4301179796256988595
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940002637828383707}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1949558, y: 1.2305616, z: 0.7593037}
+  m_Center: {x: -0.080325484, y: 0.0000005341302, z: -0.026030153}
+--- !u!65 &7611301160081084643
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940002637828383707}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.254238, y: 1.2305616, z: 1.1640102}
+  m_Center: {x: -0.5506787, y: 0.00000135422, z: 0.9320311}

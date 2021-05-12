@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6980787327381554077}
   - component: {fileID: 6291359921098148920}
   - component: {fileID: 8118743050190043378}
+  - component: {fileID: 6989795940060292669}
   m_Layer: 0
   m_Name: Fresque
   m_TagString: Untagged
@@ -80,3 +81,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6989795940060292669
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7758415429773564199}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15.233269, y: 4.43575, z: 15.811063}
+  m_Center: {x: -0.034524214, y: -0.05091602, z: 6.7132926}
