@@ -20,6 +20,5 @@ public class GameManager : MonoBehaviour {
             return;
         }
         transform.parent = null;
-        DontDestroyOnLoad(gameObject);
     }
 }
