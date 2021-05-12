@@ -2,6 +2,11 @@
 using UnityEngine;
 
 public class PowerHandeler : MonoBehaviour {
+    public int Power { get => power; }
+    public bool CanP1 { get => canP1; }
+    public bool CanP2 { get => canP2; }
+    public bool CanP3 { get => canP3; }
+
     [SerializeField] private KeyCode power1 = KeyCode.Alpha1, power2 = KeyCode.Alpha2, power3 = KeyCode.Alpha3;
     [SerializeField] private int power = 1;
     [SerializeField] private float coolDown = 200f;
@@ -70,7 +75,10 @@ public class PowerHandeler : MonoBehaviour {
         }
     }
 
-    private void SetPower1() {
+    private bool SetPower1() {
+        if(!CanP1) {
+            return false;
+        }
         power = 1;
         shooterHandeler.SpawnShooters(1);
         shooterHandeler.MainShooter.SetSpecial(p1Firerate, p1Object);
@@ -78,9 +86,13 @@ public class PowerHandeler : MonoBehaviour {
         p1Character.SetActive(true);
         p2Character.SetActive(false);
         p3Character.SetActive(false);
+        return true;
     }
 
-    private void SetPower2() {
+    private bool SetPower2() {
+        if(!CanP2) {
+            return false;
+        }
         power = 2;
         shooterHandeler.SpawnShooters(1);
         shooterHandeler.MainShooter.SetSpecial(p2Firerate, p2Object);
@@ -88,9 +100,13 @@ public class PowerHandeler : MonoBehaviour {
         p1Character.SetActive(false);
         p2Character.SetActive(true);
         p3Character.SetActive(false);
+        return true;
     }
 
-    private void SetPower3() {
+    private bool SetPower3() {
+        if(!CanP3) {
+            return false;
+        }
         power = 3;
         shooterHandeler.SpawnShooters(shooterAmount, angle, p3Firerate, p3Object);
         shooterHandeler.MainShooter.SetSpecial(p3Firerate, p3Object);
@@ -98,6 +114,7 @@ public class PowerHandeler : MonoBehaviour {
         p1Character.SetActive(false);
         p2Character.SetActive(false);
         p3Character.SetActive(true);
+        return true;
     }
 
     public bool Shoot(AudioManager audio) {
@@ -128,8 +145,43 @@ public class PowerHandeler : MonoBehaviour {
         }
     }
 
+    public bool LooseLife(int power, Sprite deadSprite) {
+        switch(power) {
+            case 1:
+                canP1 = false;
+                GameManager.Instance.UI.P1Image.sprite = deadSprite;
+                if(!SetPower2()) {
+                    if(!SetPower3()) {
+                        return false;
+                    }
+                }
+                return true;
+            case 2:
+                canP2 = false;
+                GameManager.Instance.UI.P2Image.sprite = deadSprite;
+                if(!SetPower3()) {
+                    if(!SetPower1()) {
+                        return false;
+                    }
+                }
+                return true;
+            case 3:
+                canP3 = false;
+                GameManager.Instance.UI.P3Image.sprite = deadSprite;
+                if(!SetPower1()) {
+                    if(!SetPower2()) {
+                        return false;
+                    }
+                }
+                return true;
+            default:
+                return false;
+        }
+    }
+
     private bool canP1 = true, canP2 = true, canP3 = true;
     private float currentP1 = 100f, currentP2 = 100f, currentP3 = 100f;
     private ShooterHandeler shooterHandeler = null;
     private Animator animator = null;
+
 }
