@@ -570,10 +570,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6597257330785721494, guid: ddbb4a5d42d2f9e47bea4118b895b031,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1303dd26ccd79c147ba1942f03cd826f, type: 2}
+    - target: {fileID: -6597257330785721494, guid: ddbb4a5d42d2f9e47bea4118b895b031,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bdce1fcf104718146a96001010585d52, type: 2}
+    - target: {fileID: -6597257330785721494, guid: ddbb4a5d42d2f9e47bea4118b895b031,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1303dd26ccd79c147ba1942f03cd826f, type: 2}
     - target: {fileID: 919132149155446097, guid: ddbb4a5d42d2f9e47bea4118b895b031,
         type: 3}
       propertyPath: m_Name
       value: Enemy_PlayerSOBEK_Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729413168405115760, guid: ddbb4a5d42d2f9e47bea4118b895b031,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb90a2be7c47a164fb0f4541f1c24188, type: 2}
+    - target: {fileID: 3844593680406075547, guid: ddbb4a5d42d2f9e47bea4118b895b031,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddbb4a5d42d2f9e47bea4118b895b031, type: 3}
