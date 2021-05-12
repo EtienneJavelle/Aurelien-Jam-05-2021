@@ -291,7 +291,7 @@ MonoBehaviour:
   p2Object: {fileID: 794624530367635521, guid: ea85343ef3f56be4190cd861555b2ba7, type: 3}
   p3Cost: 60
   p3Firerate: 800
-  p3Object: {fileID: 7040624712344766809, guid: 57791564b33d2574090d10a60cedc78d,
+  p3Object: {fileID: 7040624712344766809, guid: 299790c3d2977944ba44ae9ddf09afe3,
     type: 3}
   shooterAmount: 9
   angle: 360
